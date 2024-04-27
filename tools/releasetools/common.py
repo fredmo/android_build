@@ -3590,13 +3590,10 @@ def MakeRecoveryPatch(input_dir, output_sink, recovery_img, boot_img,
   full_recovery_image = info_dict.get("full_recovery_image") == "true"
   board_uses_vendorimage = info_dict.get("board_uses_vendorimage") == "true"
 
+  recovery_img_path = "etc/recovery.img"
   if board_uses_vendorimage:
-    # In this case, the output sink is rooted at VENDOR
-    recovery_img_path = "etc/recovery.img"
     recovery_resource_dat_path = "VENDOR/etc/recovery-resource.dat"
   else:
-    # In this case the output sink is rooted at SYSTEM
-    recovery_img_path = "vendor/etc/recovery.img"
     recovery_resource_dat_path = "SYSTEM/vendor/etc/recovery-resource.dat"
 
   if full_recovery_image:
